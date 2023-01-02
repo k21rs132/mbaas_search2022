@@ -58,10 +58,10 @@
                 })
         }
 
-        function searchLevel() {
-            let level = parseInt($("#level").val());
+        function searchArea() {
+            let area = parseInt($("#area").val());
             let TestDataClass = ncmb.DataStore(db);
-            TestDataClass.equalTo("level", level).fetchAll()
+            TestDataClass.equalTo("area", area).fetchAll()
                 .then(function(results) {
                     showResults(results);
                 })
@@ -100,6 +100,8 @@
     <div>
         <label for="mountain">mountain:</label>
         <input id="mountain" type="text" placeholder="mountain name">
+        <label for="area">area:</label>
+        <input id="area" type="number" placeholder="area">
     </div>
     <div id="button">
         <button class="btn" onclick="fetchAll()">Fetch All</button>
@@ -107,7 +109,7 @@
         <button class="btn" onclick="searchMountain()">Mountain</button>
         <br>
         <button class="btn" onclick="searchLevelLT()">Area &lt</button>
-        <button class="btn" onclick="searchLevel()">Area</button>
+        <button class="btn" onclick="searchArea()">Area</button>
         <button class="btn" onclick="searchLevelGT()">Area  &gt</button>
         <br>
         <button class="btn" onclick="searchLevelLT()">Population &lt</button>
