@@ -49,6 +49,15 @@
                 })
         }
 
+        function searchMountain() {
+            let mountain= $("#mountain").val();
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.equalTo("mountain", mountain).fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
         function searchLevel() {
             let level = parseInt($("#level").val());
             let TestDataClass = ncmb.DataStore(db);
@@ -95,7 +104,7 @@
     <div id="button">
         <button class="btn" onclick="fetchAll()">Fetch All</button>
         <button class="btn" onclick="searchName()">Name</button>
-        <button class="btn" onclick="searchName()">Mountain</button>
+        <button class="btn" onclick="searchMountain()">Mountain</button>
         <br>
         <button class="btn" onclick="searchLevelLT()">Area &lt</button>
         <button class="btn" onclick="searchLevel()">Area</button>
