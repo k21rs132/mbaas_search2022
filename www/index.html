@@ -98,6 +98,17 @@
                 })
         }
 
+        function searchPopulationLT() {
+            let population = parseInt($("#population").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+                .lessThan("population", population)
+                .fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+        
     </script>
 </head>
 
@@ -124,7 +135,7 @@
         <button class="btn" onclick="searchArea()">Area</button>
         <button class="btn" onclick="searchAreaGT()">Area  &gt</button>
         <br>
-        <button class="btn" onclick="searchLevelLT()">Population &lt</button>
+        <button class="btn" onclick="searchPopulationLT()">Population &lt</button>
         <button class="btn" onclick="searchPopulation()">Population</button>
         <button class="btn" onclick="searchLevelGT()">Population  &gt</button>
         <br>
